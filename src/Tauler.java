@@ -47,15 +47,14 @@ public class Tauler {
             for(int c=0; c<this.n; c++){
 
                 // Contar minas alrededor
-                if( f-1>=0 && c-1>=0 && this.tauler[f-1][c-1].getEsMina() )             mines++;
-                if( f-1>=0 && this.tauler[f-1][c].getEsMina() )                         mines++;
-                if( f-1>=0 && c+1<this.n && tauler[f-1][c+1].getEsMina() )              mines++;
-                if( c-1>=0 && this.tauler[f][c-1].getEsMina() )                         mines++;
-                if( c+1<this.n && this.tauler[f][c+1].getEsMina() )                     mines++;
-                if( f+1<this.n && c-1>=0 && this.tauler[f+1][c-1].getEsMina() )         mines++;
-                if( f+1<this.n && this.tauler[f+1][c].getEsMina() )                     mines++;
-                if( f+1<this.n && c+1 <this.n && this.tauler[f+1][c+1].getEsMina() )    mines++;
+                for( int ff=-1; ff<=1; ff++){
+                    for( int cc=-1; cc<=1; cc++){
 
+                        if( coordenadesOK(c+cc, f+ff) &&tauler[f+ff][c+cc].getEsMina() )
+                            mines++;
+
+                    }
+                }
                 this.tauler[f][c].setMines( mines );
                 mines = 0;
             }
@@ -103,25 +102,10 @@ public class Tauler {
                         }
                     }
                 }
-/*
-                descobreixCasellaREC(x - 1, y - 1);
-                descobreixCasellaREC(x, y - 1);
-                descobreixCasellaREC(x + 1, y - 1);
-                descobreixCasellaREC(x - 1, y);
-                descobreixCasellaREC(x + 1, y);
-                descobreixCasellaREC(x - 1, y + 1);
-                descobreixCasellaREC(x, y + 1);
-                descobreixCasellaREC(x + 1, y + 1);
-
- */
             }
-            else {
+            /*else {
                 //Caso base: hay minas cerca, paramos recursividad
-                //Test modificación código en github.com
-                //Otro cambio más
-                //Edito en github.com
-                //Edito en intelliJ
-            }
+            }*/
         }
     }
 
