@@ -127,8 +127,7 @@ public class Tauler {
 
     public boolean coordenadesOK(int x, int y){
 
-        if( x>=0 && x<n && y>=0 && y<n ) return true;
-        else return false;
+        return x>=0 && x<n && y>=0 && y<n;
 
     }
 

@@ -28,7 +28,7 @@ public class Main {
         tauler.posaMines( minas );
         tauler.comptaMines();
 
-        System.out.println( tauler.toString() );
+        System.out.println( tauler );
 
         String cela;
         int c, f;
@@ -70,7 +70,7 @@ public class Main {
                     }
                 }
             }
-            System.out.println( tauler.toString() );
+            System.out.println( tauler );
         }
         if( bomba ) System.out.println("¡Bomba!");
         else System.out.println("¡Molt bé!");
