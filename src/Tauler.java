@@ -119,6 +119,7 @@ public class Tauler {
                 //Caso base: hay minas cerca, paramos recursividad
                 //Test modificación código en github.com
                 //Otro cambio más
+                //Edito en github.com
                 //Edito en intelliJ
             }
         }
