@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class Tauler {
 
-    private int n;
-    private int mines;
+    private final int n;
+    private final int mines;
     private Casella[][] tauler;
 
     public Tauler(int n, int mines){
@@ -22,31 +22,30 @@ public class Tauler {
 
     public void posaMines( int mines ){
 
-        int xR;
-        int yR;
-        int minasOk = 0;
+        int f, c;
         Random random = new Random();
 
-        while( minasOk < mines ){
+        while( mines > 0 ){
 
-            xR = random.nextInt(this.n);
-            yR = random.nextInt(this.n);
+            c = random.nextInt(this.n);
+            f = random.nextInt(this.n);
 
-            if( !this.tauler[xR][yR].getEsMina() ){
+            if( !this.tauler[c][f].getEsMina() ){
 
-                this.tauler[xR][yR].setEsMina();
-                minasOk++;
+                this.tauler[c][f].setEsMina();
+                mines--;
             }
         }
     }
 
     public void comptaMines(){
 
-        int mines = 0;
+        int mines;
         for(int f=0; f<this.n; f++){
             for(int c=0; c<this.n; c++){
 
                 // Contar minas alrededor
+                mines = 0;
                 for( int ff=-1; ff<=1; ff++){
                     for( int cc=-1; cc<=1; cc++){
 
@@ -56,7 +55,6 @@ public class Tauler {
                     }
                 }
                 this.tauler[f][c].setMines( mines );
-                mines = 0;
             }
         }
     }
